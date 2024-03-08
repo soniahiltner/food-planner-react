@@ -1,0 +1,15 @@
+.favStar,
+.noFav {
+  position: relative;
+  cursor: pointer;
+}
+
+.favStar {
+  color: rgb(255, 0, 0);
+  border-radius: 50%;
+  background-color: rgb(207, 201, 201);
+  padding: 0.2rem;
+}
+.noFav {
+  color: lightgray;
+}

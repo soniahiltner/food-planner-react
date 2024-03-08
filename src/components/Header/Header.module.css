@@ -1,0 +1,17 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--backgroundColor);
+}
+
+.logo {
+  padding: 2rem 0  0 2rem;
+}
+
+/* media query */
+@media (min-width: 768px){
+  .logo {
+    padding: 2rem 0  0 4rem;
+  }
+}
