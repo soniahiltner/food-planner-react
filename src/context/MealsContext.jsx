@@ -7,8 +7,9 @@ export const MealsContext = createContext()
 
 export const MealsProvider = ({ children }) => {
   const [categories, setCategories] = useState([])
-  const [favourites, setFavourites] = useLocalStorage("favourites-meals", [])
+  const [favourites, setFavourites] = useLocalStorage("food-plan-favourites", [])
   const [foodPlan, setFoodPlan] = useLocalStorage("food-plan", [])
+  const [shoppingList, setShoppingList] = useLocalStorage("food-plan-shopping-list", [])
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
 
@@ -74,6 +75,49 @@ export const MealsProvider = ({ children }) => {
     }
   }
 
+  // Add to shopping list
+  const addToShoppingList = (ingredient) => {
+    let ingredientInList = shoppingList.find((item) => item.name === ingredient.name)
+    if (ingredientInList) {
+      ingredientInList.measure = `${ingredientInList
+        .measure} + ${ingredient.measure}`
+      ingredientInList.completed = false
+      setShoppingList([...shoppingList])
+    } else {
+      let newIngredient = { ...ingredient, completed: false }
+      setShoppingList([...shoppingList, newIngredient])
+    }
+  }
+
+  // Remove from shopping list
+  const removeFromShoppingList = (ingredient) => {
+    const newShoppingList = shoppingList.filter((item) => item.name !== ingredient.name)
+    setShoppingList(newShoppingList)
+  }
+
+  // Toggle completed shopping list item
+  const toggleCompleted = (ingredient) => {
+    const newShoppingList = shoppingList.map((item) => {
+      if (item.name === ingredient.name) {
+        return { ...item, completed: !item.completed }
+      }
+      return item
+    })
+    setShoppingList(newShoppingList)
+  }
+
+  // Remove all completed shopping list items
+  const removeAllCompleted = () => {
+    const newShoppingList = shoppingList.filter((item) => !item.completed)
+    setShoppingList(newShoppingList)
+  }
+
+  // Remove all shopping list items
+  const removeAll = () => {
+    setShoppingList([])
+  }
+  
+
 
   return (
     <MealsContext.Provider
@@ -90,7 +134,14 @@ export const MealsProvider = ({ children }) => {
         toggleFavourites,
         addToFoodPlan,
         removeFromFoodPlan,
-        toggleFoodPlan
+        toggleFoodPlan,
+        shoppingList,
+        setShoppingList,
+        addToShoppingList,
+        removeFromShoppingList,
+        toggleCompleted,
+        removeAllCompleted,
+        removeAll
       }}
     >
       {children}

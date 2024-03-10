@@ -1,0 +1,28 @@
+.btnContainer {
+  flex: 25%;
+}
+
+.addBtn {
+  width: 100%;
+  border-radius: 20%;
+  border: none;
+  padding: 0.3rem;
+  height: 2.2rem;
+  background-color: rgba(209, 169, 23, 0.553);
+  box-shadow: inset 2px 20px 40px rgba(155, 140, 178, 0.553);
+  cursor: pointer;
+}
+
+.addBtn:hover {
+  background-color: rgba(209, 169, 23);
+}
+
+/* Media query */
+@media (max-width: 425px)  {
+  .btnContainer {
+    flex: 30%;
+  }
+  .addBtn {
+    font-size: 0.8rem;
+  }
+}

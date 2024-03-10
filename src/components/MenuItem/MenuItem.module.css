@@ -1,0 +1,45 @@
+.menuItem {
+  width: 100%;
+  display: flex;
+  padding: 0.3rem;
+  border-radius: 10px;
+  margin-bottom: 0.4rem;
+  background-color: rgba(17, 61, 98, 0.479);
+  box-shadow: 1px 1px 10px rgba(225, 221, 230, 0.553);
+}
+
+.menuName {
+  flex: 80%;
+  font-size: 1.2rem;
+  padding: 0 0.2rem;
+  align-self: center;
+  /* box-shadow: inset 0px -2px 1px 0px wheat; */
+  font-weight: 600;
+  color: wheat;
+}
+
+.ingredientsBtn {
+  flex: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ingredientsLink {
+  background-color: rgba(209, 169, 23, 0.553);
+  box-shadow: inset 2px 20px 40px rgba(155, 140, 178, 0.553);
+  color: rgb(13, 9, 61);
+  font-size: .9rem;
+  font-weight: 600;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.ingredientsLink:hover {
+  background-color: rgba(209, 169, 23);
+}

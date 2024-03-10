@@ -1,18 +1,18 @@
-.plan {
+.shopping {
   margin: 0 auto;
 }
 
-.plan h1 {
+.shopping h1 {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
-.plan p {
+.shopping p {
   text-align: center;
   margin: 1rem 0;
 }
 
-.menuList {
+.shoppingList {
   display: flex;
   flex-direction: column;
   align-items: center;

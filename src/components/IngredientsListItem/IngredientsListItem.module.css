@@ -1,0 +1,37 @@
+.ingredient {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3rem;
+  border-radius: 10px;
+  margin-bottom: 0.4rem;
+  background-color: rgba(17, 61, 98, 0.479);
+  box-shadow: 1px 1px 10px rgba(225, 221, 230, 0.553);
+  font-size: 1rem;
+}
+
+.ingredientName {
+  flex: 45%;
+  padding: 0 0.2rem;
+  align-self: center;
+  font-weight: 600;
+  color: wheat;
+}
+
+.ingredientMeasure {
+  flex: 30%;
+  padding: 0 0.2rem;
+  align-self: center;
+  font-weight: 600;
+  color: wheat;
+}
+
+/* Media query */
+@media (max-width: 425px) {
+  .ingredient {
+    font-size: .9rem;
+  }
+  .ingredientName {
+    flex: 40%;
+  }
+}

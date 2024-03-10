@@ -1,0 +1,31 @@
+.removeFromPlan {
+  flex: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deleteBtn {
+  position: relative;
+  cursor: pointer;
+  background-color: rgba(115, 98, 98, 0.722);
+  color: wheat;
+  box-shadow: inset 1px 1px 4px rgba(211, 207, 215, 0.553);
+  border-radius: 20%;
+  border: none;
+  cursor: pointer;
+  padding: 0.4rem;
+  height: 2.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.deleteBtn > i {
+  font-size: 1.2rem;
+}
+
+.deleteBtn:hover {
+  background-color: red;
+  color: white;
+}

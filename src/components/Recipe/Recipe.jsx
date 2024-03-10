@@ -4,6 +4,7 @@ import api from '../../helpers/apis'
 import { useEffect, useState } from 'react'
 import RecipeIngredients from '../RecipeIngredients/RecipeIngredients'
 import FavouriteIcon from '../FavouriteIcon/FavouriteIcon'
+import AddToPlanIcon from '../AddToPlanIcon/AddToPlanIcon'
 
 const Recipe = () => {
   const { id } = useParams()
@@ -21,12 +22,10 @@ const Recipe = () => {
   useEffect(() => {
     getRecipe(id)
   }, [id])
-  console.log(recipe)
+  
   if (!recipe) {
     return null
   }
-
-
   return (
     <div className={styles.recipe}>
       <h2>{recipe.strMeal}</h2>
@@ -36,7 +35,8 @@ const Recipe = () => {
           alt={recipe.strMeal}
         />
         <div className={styles.tags}>
-          <FavouriteIcon idMeal={recipe.idMeal} /> 
+          <FavouriteIcon idMeal={recipe.idMeal} />
+          <AddToPlanIcon idMeal={recipe.idMeal} />
           <span className={styles.countryTag}>{recipe.strArea}</span>
         </div>
       </div>

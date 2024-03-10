@@ -8,6 +8,8 @@ import Category from './components/Category/Category'
 import Recipe from './components/Recipe/Recipe'
 import Favourites from './pages/Favourites/Favourites'
 import Plan from './pages/Plan/Plan'
+import Ingredients from './components/Ingredients/Ingredients'
+import ShoppingList from './pages/ShoppingList/ShoppingList'
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
             <Route path='/recipe/:id' element={<Recipe />} /> 
             <Route path='/favourites' element={<Favourites />} />
             <Route path='/plan' element={<Plan />} />
+            <Route path='/ingredients/:id' element={<Ingredients />} />
+            <Route path='/shoppingList' element={<ShoppingList />} />
           
         </Routes>
       </div>
