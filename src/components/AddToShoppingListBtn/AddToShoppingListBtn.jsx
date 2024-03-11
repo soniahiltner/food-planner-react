@@ -4,12 +4,20 @@ import PropTypes from 'prop-types'
 
 const AddToShoppingListBtn = ({ ingredient }) => {
 
-  const { addToShoppingList } = useMeals()
+  const { addToShoppingList, setAlert } = useMeals()
+
+  const handleClick = () => {
+    addToShoppingList(ingredient)
+    setAlert(true)
+    setTimeout(() => {
+      setAlert(false)
+    }, 3000)
+  }
   return (
     <div className={styles.btnContainer}>
       <button
         className={styles.addBtn}
-        onClick={() => addToShoppingList(ingredient)}
+        onClick={handleClick}
       >
         Add to Shopping List
       </button>

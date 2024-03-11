@@ -1,24 +1,23 @@
-.pending {
-  background-color: rgb(255, 179, 0);
+.button {
+  color: var(--backgroundColor);
   border: none;
   border-radius: 30px;
-  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
   width: 5rem;
   height: 4rem;
 }
 
+.pending {
+  background-color: rgb(255, 179, 0);
+  font-size: 1rem;
+}
+
 .done {
   background-color: var(--check-color);
-  color: var(--backgroundColor);
   color: rgb(32, 32, 154);
-  font-weight: 600;
   font-size: 2rem;
   transition: all 0.4s ease-out;
-  border: none;
-  border-radius: 30px;
-  cursor: pointer;
-  width: 5rem;
-  height: 4rem;
 }
+
 

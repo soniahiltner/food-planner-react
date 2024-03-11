@@ -6,17 +6,11 @@ const DoneButton = ({ ingredient }) => {
 
   const { toggleCompleted } = useMeals()
   return (
-    <button 
-      className={ingredient.completed ? styles.done : styles.pending}
+    <button
+      className={`${ingredient.completed ? styles.done : styles.pending} ${styles.button}`}
       onClick={() => toggleCompleted(ingredient)}
     >
-      {ingredient.completed ? (
-        <span>&#10004;</span>
-      ) : (
-          <span>
-            Pending
-        </span>
-      )}
+      {ingredient.completed ? <span>&#10004;</span> : <span>Pending</span>}
     </button>
   )
 }

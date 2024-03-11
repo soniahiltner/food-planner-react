@@ -5,11 +5,32 @@
   width: 90%;
   max-width: 768px;
   margin: 0 auto;
+  position: relative;
 }
 
 /* Media query */
 @media (max-width: 425px) {
   .ingredientsList {
     width: 100%;
+  }
+}
+
+.alert {
+  position: absolute;
+  top: -2.4rem;
+  right: 5%;
+  text-align: end;
+  padding: 0.5rem;
+  color: #fa061e;
+  font-weight: bold;
+  animation: alert .5s ease-in-out;
+}
+
+@keyframes alert {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

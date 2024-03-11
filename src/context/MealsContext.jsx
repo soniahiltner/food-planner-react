@@ -12,6 +12,7 @@ export const MealsProvider = ({ children }) => {
   const [shoppingList, setShoppingList] = useLocalStorage("food-plan-shopping-list", [])
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [alert, setAlert] = useState(false)
 
   // Fetch categories
   const fetchCategories = async () => {
@@ -106,6 +107,17 @@ export const MealsProvider = ({ children }) => {
     setShoppingList(newShoppingList)
   }
 
+  // Edit shopping list item
+  const editShoppingListItem = (ingredient, newIngredient) => {
+    const newShoppingList = shoppingList.map((item) => {
+      if (item.name === ingredient.name) {
+        return newIngredient
+      }
+      return item
+    })
+    setShoppingList(newShoppingList)
+  }                       
+
   // Remove all completed shopping list items
   const removeAllCompleted = () => {
     const newShoppingList = shoppingList.filter((item) => !item.completed)
@@ -117,8 +129,6 @@ export const MealsProvider = ({ children }) => {
     setShoppingList([])
   }
   
-
-
   return (
     <MealsContext.Provider
       value={{
@@ -138,10 +148,13 @@ export const MealsProvider = ({ children }) => {
         shoppingList,
         setShoppingList,
         addToShoppingList,
+        editShoppingListItem,
         removeFromShoppingList,
         toggleCompleted,
         removeAllCompleted,
-        removeAll
+        removeAll,
+        alert,
+        setAlert
       }}
     >
       {children}

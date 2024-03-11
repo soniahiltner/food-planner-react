@@ -4,8 +4,13 @@
   flex-direction: column;
   margin-bottom: 1rem;
   padding: 1rem;
-  background-color: rgb(8, 212, 8, 0.3);
   border-radius: 50px;
+  
+  background-color: rgb(55, 94, 202);
+  background-color: rgba(8, 118, 208, 0.479);
+  background-color: rgb(8, 212, 8, 0.3);
+  box-shadow: 1px 1px 10px rgba(225, 221, 230, 0.553);
+  background-color: rgb(5, 54, 94);
 }
 
 .ingredient {
@@ -32,17 +37,30 @@
   border: none;
   border-radius: 30px;
   font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
 }
 
 .editBtn {
   background-color: rgb(255, 179, 0);
+  background-color: rgb(174, 196, 47);
   color: var(--backgroundColor);
   padding: 0.5rem 1rem;
 }
 
+.editBtn:hover {
+  background-color: rgb(65, 137, 7);
+  color: rgb(255, 2, 2);
+  color: white;
+}
+
 .deleteBtn {
-  background-color: rgb(255, 0, 0);
+  background-color: rgb(255, 123, 0);
   color: var(--backgroundColor);
   padding: 0.5rem 1rem;
+}
+
+.deleteBtn:hover {
+  background-color: rgb(255, 0, 0);
+  color: rgb(255, 255, 255);
 }

@@ -3,11 +3,22 @@ import styles from './ShoppingListItem.module.css'
 import PropTypes from 'prop-types'
 import { useMeals } from '../../hooks/useMeals'
 import DoneButton from '../DoneButton/DoneButton'
+import ModalForm from '../ModalForm/ModalForm'
 
 const ShoppingListItem = ({ ingredient }) => {
-  const { name, measure, completed } = ingredient
-  const [editIngredient, setEditIngredient] = useState(false)
-  const { removeFromShoppingList } = useMeals()
+  const { name, measure } = ingredient
+  const [modal, setModal] = useState(false)
+  const { editShoppingListItem, removeFromShoppingList } = useMeals()
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const newIngredient = {
+      name: e.target.name.value,
+      measure: e.target.measure.value,
+      completed: false
+    }
+    editShoppingListItem(ingredient, newIngredient)
+    setModal(false)
+  }
 
   return (
     <div className={styles.ingredientContainer}>
@@ -22,7 +33,7 @@ const ShoppingListItem = ({ ingredient }) => {
       <div className={styles.btnContainer}>
         <button
           className={`${styles.button} ${styles.editBtn}`}
-          onClick={() => setEditIngredient(true)}
+          onClick={() => setModal(true)}
         >
           Edit</button>
         <button
@@ -32,6 +43,17 @@ const ShoppingListItem = ({ ingredient }) => {
           Delete
         </button>
       </div>
+      {modal && (
+        <ModalForm
+          setModal={setModal}
+          handleSubmit={handleSubmit}
+          defaultName={name}
+          defaultMeasure={measure}
+          legend='Edit Ingredient'
+          submitBtn='Update'
+        />
+      )}
+      
     </div>
   )
 }
