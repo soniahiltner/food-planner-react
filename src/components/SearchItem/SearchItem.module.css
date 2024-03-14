@@ -1,0 +1,23 @@
+.search {
+  flex: 50%;
+}
+
+
+.label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: rgb(140, 163, 117);
+  font-weight: 600;
+}
+
+.input {
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: 0.3rem;
+  margin-right: 0.5rem;
+  outline: none;
+}
+
+.button i {
+  color: chartreuse;
+}

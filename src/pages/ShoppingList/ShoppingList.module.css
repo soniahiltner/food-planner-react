@@ -27,14 +27,14 @@
   width: 90%;
   margin: 2rem 0;
   max-width: 768px;
-  margin: 2rem auto;
+  margin: 1rem auto;
 }
 
 .button {
-  padding: 0.3rem;
+  padding: 0.2rem;
   border: none;
   border-radius: 5px;
-  font-size: 0.8rem;
+  font-size: 0.7rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
@@ -62,10 +62,17 @@
   background-image: linear-gradient(90deg, rgb(53, 51, 51), rgb(198, 31, 62));
 }
 
-/* Media query */
+/* Media queries */
+@media (min-width: 375px) {
+  .button {
+    padding: 0.2rem;
+    font-size: 0.8rem;
+  }
+}
+
 @media (min-width: 425px) {
   .button {
-    padding: 0.4rem;
+    padding: 0.3rem;
     font-size: 1rem;
   }
 }

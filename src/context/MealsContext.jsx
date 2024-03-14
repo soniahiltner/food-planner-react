@@ -13,6 +13,7 @@ export const MealsProvider = ({ children }) => {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
   const [alert, setAlert] = useState(false)
+  const [countries, setCountries] = useState([])
 
   // Fetch categories
   const fetchCategories = async () => {
@@ -128,6 +129,25 @@ export const MealsProvider = ({ children }) => {
   const removeAll = () => {
     setShoppingList([])
   }
+
+  // Get countries
+  const fetchCountries = async () => {
+    try {
+      setLoading(true)
+      const res = await fetch(api.COUNTRIES_URL)
+      const data = await res.json()
+      setCountries(data.meals.map((meal) => meal.strArea))
+      setLoading(false)
+    } catch (error) {
+      console.error(error)
+      setError(error)
+      setLoading(false)
+    }
+  }
+  useEffect(() => {
+    fetchCountries()
+  }, [])
+
   
   return (
     <MealsContext.Provider
@@ -135,7 +155,9 @@ export const MealsProvider = ({ children }) => {
         categories,
         favourites,
         error,
+        setError,
         loading,
+        setLoading,
         setFavourites,
         foodPlan,
         setFoodPlan,
@@ -154,7 +176,8 @@ export const MealsProvider = ({ children }) => {
         removeAllCompleted,
         removeAll,
         alert,
-        setAlert
+        setAlert,
+        countries
       }}
     >
       {children}

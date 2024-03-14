@@ -1,9 +1,10 @@
 //Archivo para guardar las variables de conexion a las apis
 
 const SEARCHLETTER_URL =
-  'https://www.themealdb.com/api/json/v1/1/search.php?f=a'
+  'https://www.themealdb.com/api/json/v1/1/search.php?f='
 
 const SEARCHNAME_URL = 'https://www.themealdb.com/api/json/v1/1/search.php?s='
+
 const SEARCH_URL = 'https://www.themealdb.com/api/json/v1/1/search.php'
 
 const SEARCHID_URL = 'https://www.themealdb.com/api/json/v1/1/lookup.php?i='

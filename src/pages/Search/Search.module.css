@@ -1,0 +1,14 @@
+.search {
+  margin: 1rem auto;
+  width: 90%;
+  max-width: 768px;
+}
+
+
+.searchItems {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 1rem;
+  margin-bottom: 2rem;
+}
