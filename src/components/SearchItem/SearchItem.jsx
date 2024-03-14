@@ -22,6 +22,7 @@ const SearchItem = ({ filter }) => {
         name={filter}
         className={styles.input}
         value={searchParams.get(filter) || ''}
+        autoComplete='off'
         onChange={handleChange}
       />
       <Link

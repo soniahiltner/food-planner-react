@@ -11,7 +11,7 @@ const AddToShoppingListBtn = ({ ingredient }) => {
     setAlert(true)
     setTimeout(() => {
       setAlert(false)
-    }, 3000)
+    }, 2000)
   }
   return (
     <div className={styles.btnContainer}>

@@ -11,7 +11,6 @@ import Plan from './pages/Plan/Plan'
 import Ingredients from './components/Ingredients/Ingredients'
 import ShoppingList from './pages/ShoppingList/ShoppingList'
 import Search from './pages/Search/Search'
-import QueryName from './components/QueryName/QueryName'
 import FilteredMeals from './components/FilteredMeals/FilteredMeals'
 
 function App() {
@@ -31,7 +30,6 @@ function App() {
             <Route path='/shoppingList' element={<ShoppingList />} />
             <Route path='/search' element={<Search />} />
             <Route path='/filteredMeals' element={<FilteredMeals />} />
-            <Route path='/queryName/:name' element={<QueryName />} />
             <Route path='*' element={<h1>Not Found</h1>} />
           
         </Routes>

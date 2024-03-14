@@ -16,14 +16,18 @@ const ModalForm = ({ setModal, handleSubmit, defaultName, defaultMeasure, legend
         <div className={styles.input}>
           <label htmlFor='name'>Name</label>
           <input
+            id='name'
             name='name'
             defaultValue={defaultName}
+            autoComplete='off'
             required
           />
           <label htmlFor='measure'>Measure</label>
           <input
+            id='measure'
             name='measure'
             defaultValue={defaultMeasure}
+            autoComplete='off'
             required
           />
         </div>
