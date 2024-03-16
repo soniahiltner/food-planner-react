@@ -7,7 +7,7 @@ const Search = () => {
 
   
   return (
-    <div className={styles.search}>
+    <div className={styles.search} data-testid='search-page'>
       <div className={styles.searchItems}>
         <SearchItem
         filter='name'

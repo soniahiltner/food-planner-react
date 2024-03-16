@@ -18,9 +18,9 @@ const Category = () => {
     return <h1 style={{textAlign:'center'}}>Error: {error.message}</h1>
   }
   return (
-    <div className={styles.category}>
+    <div className={styles.category} data-testid='category-page'>
       <h1>{category} Recipes</h1>
-      <div className={styles.grid}>
+      <div className={styles.grid} data-testid='category-page-list'>
         {data.map(meal => (
           <MealCard key={meal.idMeal} meal={meal} />)
         )}

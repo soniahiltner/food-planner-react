@@ -4,9 +4,10 @@ import formatText from '../../helpers/formatText'
 import { Link } from 'react-router-dom'
 
 const CategoryCard = ({ category }) => {
+  console.log(category)
   return (
-    <div className={styles.categoryCard}>
-      <Link to={`/category/${category.strCategory}`} className={styles.link}>
+    <div className={styles.categoryCard} data-testid='category-card'>
+      <Link to={`/category/${category.strCategory}`} className={styles.link} data-testid='category-card-link'>
         <img
         src={category.strCategoryThumb}
         alt={category.strCategory}

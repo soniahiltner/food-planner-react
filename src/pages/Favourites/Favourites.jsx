@@ -25,15 +25,20 @@ const Favourites = () => {
   }, [favourites])
 
   return (
-    <div className={styles.favourites}>
+    <div
+      className={styles.favourites}
+      data-testid='favourites-page'
+    >
       <h1>My Favourites</h1>
       {favourites.length === 0 && <p>No favourites yet</p>}
       <div className={styles.grid}>
         {favouritesMeals.map((meal) => (
-          <MealCard key={meal.idMeal} meal={meal} />
+          <MealCard
+            key={meal.idMeal}
+            meal={meal}
+          />
         ))}
       </div>
-
     </div>
   )
 }

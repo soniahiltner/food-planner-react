@@ -22,7 +22,7 @@ const ShoppingList = () => {
 
 
   return (
-    <div className={styles.shopping}>
+    <div className={styles.shopping} data-testid='shopping-list-page'>
       <h1>Shopping List</h1>
       <div className={styles.btnContainer}>
         <button

@@ -25,7 +25,7 @@ const Plan = () => {
   }, [foodPlan])
 
   return (
-    <div className={styles.plan}>
+    <div className={styles.plan} data-testid='plan-page'>
       <h1>Menus</h1>
       {foodPlan.length === 0 && <p>No menus yet</p>}
       <div className={styles.menuList}>

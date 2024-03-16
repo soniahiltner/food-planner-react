@@ -14,7 +14,10 @@ const CategoryList = () => {
   }
   
   return (
-    <div className={styles.grid}>
+    <div className={styles.grid} data-testid='category-list'>
+      {categories && categories.length === 0 && (
+        <h1 style={{ textAlign: 'center' }}>No categories found</h1>
+      )}
       {categories.map(category => (
         <CategoryCard key={category.idCategory} category={category} />
       ))}

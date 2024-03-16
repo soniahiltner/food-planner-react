@@ -3,12 +3,12 @@ import styles from './Header.module.css'
 
 const Header = () => {
   return (
-    <div className={styles.header}>
+    <header className={styles.header} data-testid='header'>
       <h1 className={styles.logo}>Food Planner</h1>
       <Navbar />
       <hr />
       <br />
-    </div>
+    </header>
   )
 }
 
