@@ -7,6 +7,7 @@ export const useFetch = (url, param) => {
 
   const getData = useCallback(async () => {
     try {
+      setLoading(true)
       const response = await fetch(url + param)
       if (!response.ok) {
         throw new Error('Error fetching data')

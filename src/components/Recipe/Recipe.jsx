@@ -1,37 +1,14 @@
 import { useParams } from 'react-router-dom'
 import styles from './Recipe.module.css'
-import api from '../../helpers/apis'
-import { useCallback, useEffect, useState } from 'react'
 import RecipeIngredients from '../RecipeIngredients/RecipeIngredients'
 import FavouriteIcon from '../FavouriteIcon/FavouriteIcon'
 import AddToPlanIcon from '../AddToPlanIcon/AddToPlanIcon'
-import { useMeals } from '../../hooks/useMeals'
 import Loader from '../Loader/Loader'
+import { useRecipe } from '../../hooks/useRecipe'
 
 const Recipe = () => {
   const { id } = useParams()
-  const [recipe, setRecipe] = useState(null)
-  const { loading, error, setLoading, setError } = useMeals()
-  
-  // Get meal by id
-  const getRecipe = useCallback(async (id) => {
-    try {
-      setLoading(true)
-      const res = await fetch(`${api.SEARCHID_URL}${id}`)
-      const data = await res.json()
-      setRecipe(data.meals[0])
-    } catch (error) {
-      console.error(error)
-      setError(error)
-    } finally {
-      setLoading(false)
-    }
-  }, [setLoading, setError])
-  
-  useEffect(() => {
-    getRecipe(id)
-  }, [id, setLoading, setError, getRecipe])
-
+  const { recipe, loading, error } = useRecipe(id)
   if (loading) {
     return <Loader />
   }
