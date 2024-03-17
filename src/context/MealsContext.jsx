@@ -22,7 +22,6 @@ export const MealsProvider = ({ children }) => {
       const res = await fetch(api.CATEGORIES_DESCRIPTION_URL)
       const data = await res.json()
       setCategories(data.categories)
-      console.log(data.categories)
       setLoading(false)
     } catch (error) {
       console.error(error)

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import ShoppingListItem from '../../components/ShoppingListItem/ShoppingListItem'
 import { useMeals } from '../../hooks/useMeals'
 import styles from './ShoppingList.module.css'
@@ -8,6 +8,22 @@ const ShoppingList = () => {
   const { shoppingList, removeAllCompleted, removeAll, addToShoppingList } = useMeals()
 
   const [modal, setModal] = useState(false)
+  //disable button if shoppingList is empty
+  const [removeAllDisable, setRemoveAllDisable] = useState(true)
+  // disable button if no completed items
+  const [completed, setCompleted] = useState(false)
+
+  useEffect(() => {
+    shoppingList.length === 0 ? setRemoveAllDisable(true) : setRemoveAllDisable(false)
+  
+  }, [shoppingList.length])
+
+    useEffect(() => {
+      shoppingList.some((ingredient) => ingredient.completed)
+        ? setCompleted(true)
+        : setCompleted(false)
+    }, [shoppingList])
+
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -22,7 +38,10 @@ const ShoppingList = () => {
 
 
   return (
-    <div className={styles.shopping} data-testid='shopping-list-page'>
+    <div
+      className={styles.shopping}
+      data-testid='shopping-list-page'
+    >
       <h1>Shopping List</h1>
       <div className={styles.btnContainer}>
         <button
@@ -32,13 +51,13 @@ const ShoppingList = () => {
           Add new item
         </button>
         <button
-          className={styles.button}
+          className={`${styles.button} ${!completed && styles.disabled}`}
           onClick={removeAllCompleted}
         >
           Remove completed
         </button>
         <button
-          className={styles.button}
+          className={`${styles.button} ${removeAllDisable && styles.disabled}`}
           onClick={removeAll}
         >
           Remove all
@@ -60,7 +79,7 @@ const ShoppingList = () => {
           legend='New Ingredient'
           submitBtn='Add'
         />
-      )} 
+      )}
     </div>
   )
 }
